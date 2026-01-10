@@ -6,4 +6,4 @@ metadata:
 spec:
   storage:
     size: 4Gi
-    storageClass: gp2
+    storageClass: local-path
