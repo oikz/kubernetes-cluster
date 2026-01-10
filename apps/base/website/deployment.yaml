@@ -21,7 +21,7 @@ spec:
               path: /WeatherForecast
               port: 8080
             initialDelaySeconds: 15
-            periodSeconds: 3
+            periodSeconds: 30
           resources:
             limits:
               cpu: 500m
