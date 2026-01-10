@@ -10,6 +10,34 @@ spec:
             namespace: argocd
             chart: oci://ghcr.io/argoproj/argo-helm/argo-cd
             version: 9.2.3
+          - appName: kubernetes-dashboard
+            namespace: kubernetes-dashboard
+            chart: https://kubernetes.github.io/dashboard
+            version: 7.14.0
+          - appName: cert-manager
+            namespace: cert-manager
+            chart: oci://quay.io/jetstack/charts/cert-manager
+            version: 1.19.2
+          - appName: uptime-kuma
+            namespace: uptime-kuma
+            chart: https://helm.irsigler.cloud
+            version: 2.24.0
+          - appName: nri-bundle
+            namespace: newrelic
+            chart: https://helm-charts.newrelic.com
+            version: 6.0.32
+          - appName: cloudnative-pg
+            namespace: cnpg-system
+            chart: https://cloudnative-pg.io/charts
+            version: 0.27.0
+          - appName: kube-prometheus-stack
+            namespace: prometheus
+            chart: https://prometheus-community.github.io/helm-charts
+            version: 80.10.0
+          - appName: traefik
+            namespace: traefik
+            chart: https://traefik.github.io/charts
+            version: 38.0.1
   template:
     metadata:
       name: "{{appName}}"

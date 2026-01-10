@@ -1,0 +1,12 @@
+app:
+  ingress:
+    enabled: true
+    hosts: ["kubernetes.oikz.dev"]
+    useDefaultIngressClass: true
+    useDefaultAnnotations: false
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+kong:
+  proxy:
+    http:
+      enabled: true

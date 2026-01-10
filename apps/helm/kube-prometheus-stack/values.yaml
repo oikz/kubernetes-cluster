@@ -1,0 +1,12 @@
+﻿grafana:
+  grafana.ini:
+    server:
+      domain: grafana.oikz.dev
+  ingress:
+    enabled: true
+    hosts: ["grafana.oikz.dev"]
+    annotations: 
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+persistence:
+  enabled: true
+  size: 1Gi
