@@ -1,0 +1,111 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: changedetection
+  name: changedetection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: changedetection
+  template:
+    metadata:
+      labels:
+        app: changedetection
+    spec:
+      initContainers:
+        - name: browser-chrome
+          image: seleniarm/standalone-chromium:4.0.0-20211213
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "100m"
+            limits:
+              memory: "2Gi"
+              cpu: "250m"
+          restartPolicy: Always
+#       - name: playwright-chrome
+#         image: browserless/chrome:latest
+#         env:
+#           - name: SCREEN_WIDTH
+#             value: "1920"
+#           - name: SCREEN_HEIGHT
+#             value: "1024"
+#           - name: SCREEN_DEPTH
+#             value: "16"
+#           - name: ENABLE_DEBUGGER
+#             value: "false"
+#           - name: PREBOOT_CHROME
+#             value: "true"
+#           - name: CONNECTION_TIMEOUT
+#             value: "300000"
+#           - name: MAX_CONCURRENT_SESSIONS
+#             value: "10"
+#           - name: CHROME_REFRESH_TIME
+#             value: "600000"
+#           - name: DEFAULT_BLOCK_ADS
+#             value: "true"
+#           - name: DEFAULT_STEALTH
+#             value: "true"
+#         resources:
+#           requests:
+#             memory: "250Mi"
+#             cpu: "100m"
+#           limits:
+#             memory: "500Mi"
+#             cpu: "250m"
+#         restartPolicy: Always
+
+      containers:
+        - name: changedetection
+          image: ghcr.io/dgtlmoon/changedetection.io:latest
+          env:
+            - name: WEBDRIVER_URL
+              value: http://localhost:4444/wd/hub
+            - name: PLAYWRIGHT_DRIVER_URL
+              value: ws://localhost:3000/?stealth=1&--disable-web-security=true
+          volumeMounts:
+            - mountPath: /datastore
+              name: datastore
+              readOnly: false
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "100m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
+
+      restartPolicy: Always
+
+      volumes:
+        - name: datastore
+          hostPath:
+            path: /var/lib/docker/volumes/changedetectionio_changedetection-data/_data/
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: changedetection
+  name: changedetection
+spec:
+  ports:
+    - port: 5000
+  selector:
+    app: changedetection
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  namespace: changedetection
+  name: changedetection
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`changedetection.oikz.dev`)
+      kind: Rule
+      services:
+        - name: changedetection
+          port: 5000
