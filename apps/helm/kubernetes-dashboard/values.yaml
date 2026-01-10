@@ -6,6 +6,8 @@ app:
     useDefaultAnnotations: false
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    tls:
+      enabled: false
 kong:
   proxy:
     http:
