@@ -1,0 +1,11 @@
+﻿apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: website
+spec:
+  routes:
+    - match: Host(`prod.oikz.dev`)
+      kind: Rule
+      services:
+        - name: production-website
+          port: 8080

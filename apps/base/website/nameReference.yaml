@@ -1,0 +1,17 @@
+﻿nameReference:
+  - kind: Service
+    fieldSpecs:
+      - kind: Service
+        path: spec/selector/app
+  - kind: Service
+    fieldSpecs:
+      - kind: HorizontalPodAutoscaler
+        path: spec/scaleTargetRef/name
+  - kind: Service
+    fieldSpecs:
+      - kind: Deployment
+        path: spec/selector/matchLabels/app
+  - kind: Service
+    fieldSpecs:
+      - kind: Deployment
+        path: spec/template/metadata/labels/app

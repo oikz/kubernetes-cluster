@@ -1,0 +1,8 @@
+﻿resources:
+  - ../../base/website
+patches:
+  - path: ingressroute.yaml
+  - path: autoscaler.yaml
+  - path: deployment.yaml
+
+namePrefix: test-

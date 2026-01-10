@@ -1,0 +1,31 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+spec:
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+        - name: website
+          image: ghcr.io/oikz/website:c63a1fbd195d0ab0ad6b5d6c5053f831c91d68fe
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /WeatherForecast
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 3
+          resources:
+            limits:
+              cpu: 500m
+              memory: 128Mi
+            requests:
+              cpu: 250m
+              memory: 128Mi

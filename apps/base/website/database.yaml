@@ -1,0 +1,9 @@
+﻿apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: database
+  namespace: website
+spec:
+  storage:
+    size: 4Gi
+    storageClass: gp2
