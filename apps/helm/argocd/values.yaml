@@ -1,0 +1,17 @@
+﻿configs:
+  params:
+    server.insecure: true
+  repositories:
+   kubernetes-cluster:
+     url: https://github.com/oikz/kubernetes-cluster.git
+     type: git
+     username: oikz
+     password: 
+server:
+  ingress: 
+    enabled: true
+    hostname: "argocd.oikz.dev"
+    annotations: 
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+global:
+  domain: argocd.oikz.dev
