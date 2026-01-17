@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: ghcr.io/oikz/website:2c715408b52c5fca780aeeecc54c0cdc3813cfea
+          image: ghcr.io/oikz/website:949a766abe1e53f5a25206c43c9df50ab549393a
           env:
             - name: OTEL_LOGS_EXPORT_URL
               value: http://victoria-logs-single-server.victoria.svc.cluster.local:9428/insert/opentelemetry/v1/logs
