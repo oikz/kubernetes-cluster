@@ -33,7 +33,7 @@ spec:
           - appName: victoria-metrics-k8s-stack
             namespace: victoria
             chart: https://victoriametrics.github.io/helm-charts/
-            version: 1.133.0
+            version: 0.67.0
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts
