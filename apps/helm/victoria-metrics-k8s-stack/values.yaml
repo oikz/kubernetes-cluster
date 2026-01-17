@@ -1,0 +1,10 @@
+alertmanager-ingress:
+  enabled: true
+  hosts:
+    - alertmanager.oikz.dev
+
+grafana:
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.oikz.dev
