@@ -2,6 +2,8 @@
 kind: Deployment
 metadata:
   name: website
+  annotations:
+    instrumentation.opentelemetry.io/inject-dotnet: "true"
 spec:
   selector:
     matchLabels:
