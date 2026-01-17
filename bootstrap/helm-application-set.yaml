@@ -30,10 +30,10 @@ spec:
             namespace: cnpg-system
             chart: https://cloudnative-pg.io/charts
             version: 0.27.0
-          - appName: kube-prometheus-stack
-            namespace: prometheus
-            chart: https://prometheus-community.github.io/helm-charts
-            version: 80.10.0
+          - appName: victoria-metrics-k8s-stack
+            namespace: victoria
+            chart: https://victoriametrics.github.io/helm-charts/
+            version: 1.133.0
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts
