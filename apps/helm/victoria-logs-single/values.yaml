@@ -2,4 +2,7 @@ server:
   ingress:
     enabled: true
     hosts:
-      - logs.oikz.dev
+      - name: logs.oikz.dev
+        path: 
+          - /
+        port: http
