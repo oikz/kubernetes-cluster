@@ -20,7 +20,7 @@ spec:
             - name: OTEL_TRACES_EXPORT_URL
               value: http://victoria-traces-single-vt-single-server.victoria.svc.cluster.local:10428/insert/opentelemetry/v1/traces
             - name: OTEL_METRICS_EXPORT_URL
-              value: http://vmsingle-victoria-metrics-k8s-stack.victoria.svc.cluster.local:8428/insert/opentelemetry/v1/metrics
+              value: http://vmsingle-victoria-metrics-k8s-stack.victoria.svc.cluster.local:8428/opentelemetry/v1/metrics
           ports:
             - containerPort: 8080
           readinessProbe:
