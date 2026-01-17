@@ -2,6 +2,7 @@ apiVersion: opentelemetry.io/v1alpha1
 kind: Instrumentation
 metadata:
   name: dotnet-instrumentation
+  namespace: website
 spec:
   exporter:
     endpoint: http://opentelemetry-kube-stack-daemon-collector.opentelemetry.svc.cluster.local:4318
