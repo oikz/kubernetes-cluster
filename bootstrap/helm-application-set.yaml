@@ -30,22 +30,6 @@ spec:
             namespace: cnpg-system
             chart: https://cloudnative-pg.io/charts
             version: 0.27.0
-          - appName: victoria-metrics-k8s-stack
-            namespace: victoria
-            chart: https://victoriametrics.github.io/helm-charts/
-            version: 0.67.0
-          - appName: victoria-logs-single
-            namespace: victoria
-            chart: https://victoriametrics.github.io/helm-charts/
-            version: 0.11.24
-          - appName: victoria-logs-collector
-            namespace: victoria
-            chart: https://victoriametrics.github.io/helm-charts/
-            version: 0.2.6
-          - appName: victoria-traces-single
-            namespace: victoria
-            chart: https://victoriametrics.github.io/helm-charts/
-            version: 0.0.5
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts

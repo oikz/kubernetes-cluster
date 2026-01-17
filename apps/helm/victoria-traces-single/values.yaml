@@ -1,8 +1,0 @@
-server:
-  ingress:
-    enabled: true
-    hosts:
-      - name: traces.oikz.dev
-        path: 
-          - /
-        port: http
