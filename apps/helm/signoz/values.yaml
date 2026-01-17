@@ -3,7 +3,7 @@ global:
 
 signoz:
   ingress:
-    enabled: false
+    enabled: true
     hosts:
       - host: signoz.oikz.dev
         paths:
