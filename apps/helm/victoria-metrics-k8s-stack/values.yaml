@@ -4,7 +4,13 @@ alertmanager-ingress:
     - alertmanager.oikz.dev
 
 grafana:
+  plugins:
+    - victoriametrics-metrics-datasource
+    - victoriametrics-logs-datasource
   ingress:
     enabled: true
     hosts:
       - grafana.oikz.dev
+  persistence:
+    type: pvc
+    enabled: true
