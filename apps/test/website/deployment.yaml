@@ -18,9 +18,3 @@ spec:
                 secretKeyRef:
                   name: test-database-app
                   key: password
-            - name: OTEL_LOGS_EXPORT_URL
-              value: http://victoria-logs-single-server.victoria.svc.cluster.local/insert/opentelemetry/v1/logs
-            - name: OTEL_TRACES_EXPORT_URL
-              value: http://victoria-traces-single-vt-single-server.victoria.svc.cluster.local/insert/opentelemetry/v1/traces
-            - name: OTEL_METRICS_EXPORT_URL
-              value: http://victoria-metrics-.victoria.svc.cluster.local/insert/opentelemetry/v1/metrics

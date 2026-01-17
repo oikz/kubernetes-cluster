@@ -14,6 +14,13 @@ spec:
       containers:
         - name: website
           image: ghcr.io/oikz/website:6bd61db53f72d9817f383c69ff01c79c2c98438b
+          env:
+            - name: OTEL_LOGS_EXPORT_URL
+              value: http://victoria-logs-single-server.victoria.svc.cluster.local/insert/opentelemetry/v1/logs
+            - name: OTEL_TRACES_EXPORT_URL
+              value: http://victoria-traces-single-vt-single-server.victoria.svc.cluster.local/insert/opentelemetry/v1/traces
+            - name: OTEL_METRICS_EXPORT_URL
+              value: http://victoria-metrics-.victoria.svc.cluster.local/insert/opentelemetry/v1/metrics
           ports:
             - containerPort: 8080
           readinessProbe:
