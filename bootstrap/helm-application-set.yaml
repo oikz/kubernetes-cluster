@@ -34,6 +34,10 @@ spec:
             namespace: victoria
             chart: https://victoriametrics.github.io/helm-charts/
             version: 0.67.0
+          - appName: victoria-logs-single
+            namespace: victoria
+            chart: https://victoriametrics.github.io/helm-charts/
+            version: 0.11.24
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts
