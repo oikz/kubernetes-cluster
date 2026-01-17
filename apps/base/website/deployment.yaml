@@ -10,19 +10,19 @@ spec:
     metadata:
       labels:
         app: website
-      # annotations:
-      #   instrumentation.opentelemetry.io/inject-dotnet: "true"
     spec:
       containers:
         - name: website
           image: ghcr.io/oikz/website:ee4f13332f0ac8d9fdc2d5bf6cce8d39eef6bedf
           env:
-            - name: OTEL_LOGS_EXPORT_URL
-              value: http://victoria-logs-single-server.victoria.svc.cluster.local:9428/insert/opentelemetry/v1/logs
-            - name: OTEL_TRACES_EXPORT_URL
-              value: http://victoria-traces-single-vt-single-server.victoria.svc.cluster.local:10428/insert/opentelemetry/v1/traces
-            - name: OTEL_METRICS_EXPORT_URL
-              value: http://vmsingle-victoria-metrics-k8s-stack.victoria.svc.cluster.local:8428/opentelemetry/v1/metrics
+            - name: OTEL_TRACES_EXPORTER
+              value: 'otlp'
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: 'http/protobuf'
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: 'http://signoz-otel-collector.signoz.svc.cluster.local:4318'
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: 'deployment.environment=production,service.version=1.0.0'
           ports:
             - containerPort: 8080
           readinessProbe:
