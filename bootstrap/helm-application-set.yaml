@@ -50,6 +50,10 @@ spec:
             namespace: traefik
             chart: https://traefik.github.io/charts
             version: 38.0.1
+          - appName: signoz
+            namespace: signoz
+            chart: https://charts.signoz.io
+            version: 0.107.0
   template:
     metadata:
       name: "{{appName}}"
