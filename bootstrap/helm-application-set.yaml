@@ -54,6 +54,10 @@ spec:
             namespace: signoz
             chart: https://charts.signoz.io
             version: 0.107.0
+          - appName: k8s-infra
+            namespace: signoz
+            chart: https://charts.signoz.io
+            version: 0.15.0
           - appName: opentelemetry-kube-stack
             namespace: opentelemetry
             chart: https://open-telemetry.github.io/opentelemetry-helm-charts
