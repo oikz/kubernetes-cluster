@@ -1,6 +1,7 @@
 ﻿githubConfigUrl: "https://github.com/oikz/website"
 githubConfigSecret: pre-defined-secret
 controllerServiceAccount:
- namespace: arc-systems
- name: gha-runner-scale-set-controller-gha-rs-controller
-containerMode: dind
+  namespace: arc-systems
+  name: gha-runner-scale-set-controller-gha-rs-controller
+containerMode: 
+  type: dind
