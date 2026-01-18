@@ -38,10 +38,6 @@ spec:
             namespace: signoz
             chart: https://charts.signoz.io
             version: 0.15.0
-          - appName: opentelemetry-kube-stack
-            namespace: opentelemetry
-            chart: https://open-telemetry.github.io/opentelemetry-helm-charts
-            version: 0.12.6
   template:
     metadata:
       name: "{{appName}}"
