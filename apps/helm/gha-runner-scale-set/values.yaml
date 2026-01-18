@@ -3,3 +3,4 @@ githubConfigSecret: pre-defined-secret
 controllerServiceAccount:
  namespace: arc-systems
  name: gha-runner-scale-set-controller-gha-rs-controller
+containerMode: dind
