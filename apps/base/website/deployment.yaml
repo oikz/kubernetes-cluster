@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: ghcr.io/oikz/website:latest
+          image: ghcr.io/oikz/website:aa471fb9abe76ab5b4e1a1f938a0746c72cc2452
           env:
             - name: OTEL_TRACES_EXPORTER
               value: 'otlp'
