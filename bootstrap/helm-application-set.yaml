@@ -46,10 +46,6 @@ spec:
             namespace: arc-runners
             chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
             version: 0.13.1
-          - appName: external-dns
-            namespace: external-dns
-            chart: https://kubernetes-sigs.github.io/external-dns/
-            version: 1.20.0
   template:
     metadata:
       name: "{{appName}}"

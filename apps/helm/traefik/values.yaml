@@ -1,8 +1,5 @@
 ﻿deployment:
   replicas: 1
-service:
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: '*.oikz.dev'
 globalArguments:
   - "--api.insecure=true"
 ingressRoute:
