@@ -1,0 +1,18 @@
+﻿strategy:
+  type: Recreate
+
+files:
+  server: /data/server-files
+  user: /data/user-files
+
+ingress:
+  enabled: true
+  hosts:
+    - host: budget.oikz.dev
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+persistence:
+  enabled: true
+  existingClaim: actualbudget-volume
