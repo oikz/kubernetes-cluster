@@ -15,4 +15,3 @@ ingress:
 
 persistence:
   enabled: true
-  existingClaim: actualbudget-volume
