@@ -33,7 +33,7 @@ spec:
           - appName: signoz
             namespace: signoz
             chart: https://charts.signoz.io
-            version: 0.107.0
+            version: 0.118.0
           - appName: k8s-infra
             namespace: signoz
             chart: https://charts.signoz.io
