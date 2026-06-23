@@ -4,10 +4,16 @@ on:
   push:
     branches: [ master ]
 
+env:
+  OCI_tenancy_ocid: ${{ secrets.OCI_TENANCY_OCID }}
+  OCI_user_ocid: ${{ secrets.OCI_USER_OCID }}
+  OCI_fingerprint: ${{ secrets.OCI_FINGERPRINT }}
+  OCI_private_key: ${{ secrets.OCI_PRIVATE_KEY }}
+  OCI_region: ${{ secrets.OCI_REGION }}
 
 jobs:
-  init:
-    name: Init terraform
+  plan:
+    name: Terraform plan
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout code
@@ -18,10 +24,34 @@ jobs:
 
       - name: Terraform init
         working-directory: oke
-        env:
-          OCI_tenancy_ocid: ${{ secrets.OCI_TENANCY_OCID }}
-          OCI_user_ocid: ${{ secrets.OCI_USER_OCID }}
-          OCI_fingerprint: ${{ secrets.OCI_FINGERPRINT }}
-          OCI_private_key: ${{ secrets.OCI_PRIVATE_KEY }}
-          OCI_region: ${{ secrets.OCI_REGION }}
         run: terraform init
+
+      - name: Terraform validate
+        working-directory: oke
+        run: terraform validate
+
+      - name: Terraform plan
+        working-directory: oke
+        run: terraform plan -out terraform.plan
+
+      - name: Upload plan
+        uses: actions/upload-artifact@v7
+        with:
+          name: terraform-plan
+          archive: false
+          path: oke/terraform.plan
+
+
+  apply:
+    name: Terraform apply
+    runs-on: [ ubuntu-latest ]
+    environment: apply
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: terraform-plan
+          path: oke
+
+      - name: Terraform apply
+        run: terraform apply terraform.plan
