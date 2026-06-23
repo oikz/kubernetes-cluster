@@ -53,6 +53,9 @@ jobs:
     environment: apply
     needs: plan
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
 
@@ -61,6 +64,10 @@ jobs:
         with:
           name: terraform.plan
           path: oke
+
+      - name: Terraform init
+        working-directory: oke
+        run: terraform init
 
       - name: Terraform apply
         working-directory: oke
