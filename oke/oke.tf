@@ -19,7 +19,8 @@
   # Auth
   api_fingerprint = var.fingerprint
   api_private_key = var.private_key
-  ssh_public_key  = var.public_key
+  ssh_private_key = var.ssh_private_key
+  ssh_public_key  = var.ssh_public_key
 
   # Networking
   create_bastion = false
