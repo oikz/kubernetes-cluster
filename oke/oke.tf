@@ -23,23 +23,10 @@
   ssh_public_key  = var.ssh_public_key
 
   # Networking
-  create_bastion        = true
-  bastion_is_public     = true
-  bastion_allowed_cidrs = ["0.0.0.0/0"]
-  bastion_shape = {
-    shape            = "VM.Standard.E2.1.Micro",
-    ocpus            = 1,
-    memory           = 1,
-    boot_volume_size = 20,
-  }
+  create_bastion = false
 
   # Operator
-  operator_shape = {
-    shape            = "VM.Standard.A1.Flex",
-    ocpus            = 1,
-    memory           = 6,
-    boot_volume_size = 50,
-  }
+  create_operator = false
 
   # Workers
   worker_pool_size = 1
@@ -60,7 +47,7 @@
   allow_worker_ssh_access           = true
   control_plane_allowed_cidrs       = ["0.0.0.0/0"]
   control_plane_is_public           = true
-  assign_public_ip_to_control_plane = true
+  # ssign_public_ip_to_control_plane = true
 
   # Gateways
   vcn_create_service_gateway = "never"
