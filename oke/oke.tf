@@ -8,12 +8,12 @@
   }
 
   # Misc
-  compartment_id = var.compartment_id
-  tenancy_id     = var.tenancy_ocid
-  user_id        = var.user_ocid
-  home_region    = var.region
-  region         = var.region
-  timezone       = var.timezone
+  compartment_id     = var.compartment_id
+  tenancy_id         = var.tenancy_ocid
+  user_id            = var.user_ocid
+  home_region        = var.region
+  region             = var.region
+  timezone           = var.timezone
   kubernetes_version = "v1.34.2"
 
   # Auth
@@ -23,14 +23,22 @@
   ssh_public_key  = var.ssh_public_key
 
   # Networking
-  create_bastion = false
+  create_bastion        = true
+  bastion_is_public     = true
+  bastion_allowed_cidrs = ["0.0.0.0/0"]
+  bastion_shape = {
+    shape            = "VM.Standard.E2.1.Micro",
+    ocpus            = 1,
+    memory           = 1,
+    boot_volume_size = 20,
+  }
 
   # Operator
   operator_shape = {
-    shape              = "VM.Standard.A1.Flex",
-    ocpus              = 1,
-    memory             = 6,
-    boot_volume_size   = 50,
+    shape            = "VM.Standard.A1.Flex",
+    ocpus            = 1,
+    memory           = 6,
+    boot_volume_size = 50,
   }
 
   # Workers
@@ -48,10 +56,11 @@
   }
 
   # Security
-  allow_worker_internet_access = true
-  allow_worker_ssh_access      = true
-  control_plane_allowed_cidrs  = ["0.0.0.0/0"]
-  control_plane_is_public      = true
+  allow_worker_internet_access      = true
+  allow_worker_ssh_access           = true
+  control_plane_allowed_cidrs       = ["0.0.0.0/0"]
+  control_plane_is_public           = true
+  assign_public_ip_to_control_plane = true
 
   # Gateways
   vcn_create_service_gateway = "never"
