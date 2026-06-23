@@ -13,3 +13,12 @@ variable "private_key" {
 variable "region" {
   type = string
 }
+variable "compartment_id" {
+  type = string
+}
+variable "public_key" {
+  type = string
+}
+variable "timezone" {
+  type = string
+}
