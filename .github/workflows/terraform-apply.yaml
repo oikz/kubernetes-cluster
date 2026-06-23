@@ -53,6 +53,9 @@ jobs:
     environment: apply
     needs: plan
     steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+
       - name: Download Artifact
         uses: actions/download-artifact@v8
         with:
