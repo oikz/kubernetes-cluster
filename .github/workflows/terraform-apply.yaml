@@ -46,6 +46,7 @@ jobs:
     name: Terraform apply
     runs-on: [ ubuntu-latest ]
     environment: apply
+    needs: plan
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v8
