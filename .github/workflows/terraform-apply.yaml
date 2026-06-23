@@ -17,6 +17,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform init
+        working-directory: oke
         env:
           OCI_tenancy_ocid: ${{ secrets.OCI_TENANCY_OCID }}
           OCI_user_ocid: ${{ secrets.OCI_USER_OCID }}
