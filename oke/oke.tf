@@ -24,6 +24,14 @@
   # Networking
   create_bastion = false
 
+  # Operator
+  operator_shape = {
+    shape              = "VM.Standard.A1.Flex",
+    ocpus              = 1,
+    memory             = 6,
+    boot_volume_size   = 50,
+  }
+
   # Workers
   worker_pool_size = 1
   worker_is_public = true
