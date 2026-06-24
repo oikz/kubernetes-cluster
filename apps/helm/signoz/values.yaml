@@ -1,0 +1,15 @@
+﻿global:
+  storageClass: local-path
+
+signoz:
+  ingress:
+    enabled: true
+    hosts:
+      - host: signoz.oikz.dev
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            port: 8080
+
+clickhouse:
+  installCustomStorageClass: true
