@@ -14,7 +14,7 @@
   home_region        = var.region
   region             = var.region
   timezone           = var.timezone
-  kubernetes_version = "v1.34.2"
+  kubernetes_version = "v1.35"
 
   # Auth
   api_fingerprint = var.fingerprint
@@ -38,7 +38,7 @@
       memory             = 6,
       size               = 1,
       boot_volume_size   = 50,
-      kubernetes_version = "v1.34.2"
+      kubernetes_version = "v1.35"
     }
   }
 
