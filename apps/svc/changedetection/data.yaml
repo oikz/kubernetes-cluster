@@ -5,7 +5,6 @@ metadata:
   namespace: changedetection
 spec:
   storageClassName: oci-bv
-  volumeName: data
   accessModes:
     - ReadWriteOnce
   resources:
