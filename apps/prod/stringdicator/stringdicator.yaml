@@ -20,12 +20,9 @@ spec:
             - mountPath: /opt/Lavalink/application.yml
               name: lavalink-application-yaml
               readOnly: true
-          #            - mountPath: /opt/Lavalink/plugins/
-          #              name: lavalink-plugins
-          #              readOnly: true
           env:
             - name: _JAVA_OPTIONS
-              value: "-Xmx6G"
+              value: "-Xmx2G"
             - name: SERVER_PORT
               value: "2333"
             - name: LAVALINK_SERVER_PASSWORD
@@ -41,20 +38,11 @@ spec:
 
       containers:
         - name: stringdicator
-          image: ghcr.io/oikz/stringdicatorbot/stringdicator:0.1.1
+          image: ghcr.io/oikz/stringdicatorbot/stringdicator:a4603e5
           volumeMounts:
             - mountPath: /app/.env
               name: stringdicator-env
               readOnly: true
-            - mountPath: /app/sqlite.db
-              name: stringdicator-sqlite
-              readOnly: false
-            - mountPath: /app/sqlite.db-wal
-              name: stringdicator-sqlite-wal
-              readOnly: false
-            - mountPath: /app/sqlite.db-shm
-              name: stringdicator-sqlite-shm
-              readOnly: false
           resources:
             requests:
               memory: "500m"
@@ -62,6 +50,44 @@ spec:
             limits:
               memory: "1Gi"
               cpu: "250m"
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: 'Stringdicator'
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: database-app
+                  key: host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database-app
+                  key: password
+            - name: TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: discord_token
+                  key: token
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: google_api_key
+                  key: api_key
+            - name: SEARCH_ENGINE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: google_search_engine_id
+                  key: search_engine_id
+            - name: DEV_GUILD_ID
+              valueFrom:
+                secretKeyRef:
+                  name: dev_guild_id
+                  key: guild_id
+            - name: DELETED_MESSAGE_CHANNEL_ID
+              valueFrom:
+                secretKeyRef:
+                  name: deleted_message_channel_id
+                  key: channel_id
 
       restartPolicy: Always
 
@@ -69,24 +95,4 @@ spec:
         - name: lavalink-application-yaml
           hostPath:
             path: /home/ubuntu/docker/k8s/stringdicator/application.yml
-            type: File
-        - name: lavalink-plugins
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/plugins/
-            type: Directory
-        - name: stringdicator-env
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/.env
-            type: File
-        - name: stringdicator-sqlite
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/sqlite.db
-            type: File
-        - name: stringdicator-sqlite-wal
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/sqlite.db-wal
-            type: File
-        - name: stringdicator-sqlite-shm
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/sqlite.db-shm
             type: File

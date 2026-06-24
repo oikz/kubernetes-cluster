@@ -1,0 +1,9 @@
+﻿apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: database
+  namespace: stringdicator
+spec:
+  storage:
+    size: 4Gi
+    storageClass: oci-bv
