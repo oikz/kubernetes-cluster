@@ -29,14 +29,13 @@
   create_operator = false
 
   # Workers
-  worker_pool_size = 1
   worker_is_public = true
   worker_pools = {
     np1 = {
       shape              = "VM.Standard.A1.Flex",
       ocpus              = 1,
       memory             = 6,
-      size               = 1,
+      size               = 2,
       boot_volume_size   = 50,
       kubernetes_version = "v1.35"
     }
@@ -52,6 +51,4 @@
   # Gateways
   vcn_create_service_gateway = "never"
   vcn_create_nat_gateway     = "never"
-
-  output_detail = true
 }
