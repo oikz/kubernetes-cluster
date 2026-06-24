@@ -18,14 +18,26 @@ kube-state-metrics:
   # metrics by default. You can enable the target labels/annotations metrics to be monitored by using the metricLabelsAllowlist/metricAnnotationsAllowList options described [here](https://github.com/prometheus-community/helm-charts/blob/159cd8e4fb89b8b107dcc100287504bb91bf30e0/charts/kube-state-metrics/values.yaml#L274) in
   # your Kubernetes clusters.
   enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100M
 
 nri-kube-events:
   # nri-kube-events.enabled -- Install the [`nri-kube-events` chart](https://github.com/newrelic/nri-kube-events/tree/main/charts/nri-kube-events)
   enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100M
 
 newrelic-logging:
   # newrelic-logging.enabled -- Install the [`newrelic-logging` chart](https://github.com/newrelic/helm-charts/tree/master/charts/newrelic-logging)
   enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100M
     # fluentBit:
     # -- What path will be mounted to read logs from the node
     # linuxMountPath: /var
@@ -43,6 +55,10 @@ newrelic-eapm-agent:
 
 k8s-agents-operator:
   enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100M
 
 # -- change the behaviour globally to all the supported helm charts.
 # See [user's guide of the common library](https://github.com/newrelic/helm-charts/blob/master/library/common-library/README.md) for further information.
