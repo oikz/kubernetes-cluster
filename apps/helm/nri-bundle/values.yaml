@@ -1,6 +1,10 @@
 ﻿newrelic-infrastructure:
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 30M
 
 nri-metadata-injection:
   # nri-metadata-injection.enabled -- Install the [`nri-metadata-injection` chart](https://github.com/newrelic/k8s-metadata-injection/tree/main/charts/nri-metadata-injection)
