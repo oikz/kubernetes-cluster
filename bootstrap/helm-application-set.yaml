@@ -38,10 +38,10 @@ spec:
             namespace: metrics-server
             chart: https://kubernetes-sigs.github.io/metrics-server/
             version: 3.13.1
-#          - appName: nri-bundle
-#            namespace: newrelic
-#            chart: https://helm-charts.newrelic.com
-#            version: 6.0.32
+          - appName: nri-bundle
+            namespace: newrelic
+            chart: https://helm-charts.newrelic.com
+            version: 6.0.32
   template:
     metadata:
       name: "{{appName}}"
