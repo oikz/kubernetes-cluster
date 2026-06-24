@@ -52,7 +52,7 @@ spec:
 
       containers:
         - name: stringdicator
-          image: ghcr.io/oikz/stringdicatorbot/stringdicator:a4603e5
+          image: ghcr.io/oikz/stringdicatorbot/stringdicator:15b13af
           resources:
             requests:
               memory: "500m"
