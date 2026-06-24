@@ -93,7 +93,7 @@ global:
 
   images:
     # -- Changes the registry where to get the images. Useful when there is an internal image cache/proxy
-    registry: ""
+    registry: "docker.io"
     # -- Set secrets to be able to fetch images
     pullSecrets: []
 
