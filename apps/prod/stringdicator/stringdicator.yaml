@@ -39,10 +39,6 @@ spec:
       containers:
         - name: stringdicator
           image: ghcr.io/oikz/stringdicatorbot/stringdicator:a4603e5
-          volumeMounts:
-            - mountPath: /app/.env
-              name: stringdicator-env
-              readOnly: true
           resources:
             requests:
               memory: "500m"
