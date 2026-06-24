@@ -1,7 +1,0 @@
-ingress:
-  enabled: true
-  hosts:
-    - host: "uptime.oikz.dev"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific

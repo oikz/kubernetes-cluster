@@ -18,10 +18,6 @@ spec:
             namespace: cert-manager
             chart: oci://quay.io/jetstack/charts/cert-manager
             version: 1.19.2
-          - appName: uptime-kuma
-            namespace: uptime-kuma
-            chart: https://helm.irsigler.cloud
-            version: 2.24.0
           - appName: cloudnative-pg
             namespace: cnpg-system
             chart: https://cloudnative-pg.io/charts
