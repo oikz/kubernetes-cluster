@@ -47,7 +47,7 @@
   allow_worker_ssh_access           = true
   control_plane_allowed_cidrs       = ["0.0.0.0/0"]
   control_plane_is_public           = true
-  # ssign_public_ip_to_control_plane = true
+  assign_public_ip_to_control_plane = true
 
   # Gateways
   vcn_create_service_gateway = "never"
