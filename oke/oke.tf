@@ -33,9 +33,9 @@
   worker_pools = {
     np1 = {
       shape              = "VM.Standard.A1.Flex",
-      ocpus              = 1,
-      memory             = 6,
-      size               = 2,
+      ocpus              = 2,
+      memory             = 12,
+      size               = 1,
       boot_volume_size   = 50,
       kubernetes_version = "v1.34.2"
     }
