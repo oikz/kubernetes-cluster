@@ -34,6 +34,10 @@ spec:
             namespace: arc-runners
             chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
             version: 0.13.1
+          - appName: metrics-server
+            namespace: metrics-server
+            chart: https://kubernetes-sigs.github.io/metrics-server/
+            version: 0.8.1
   template:
     metadata:
       name: "{{appName}}"
