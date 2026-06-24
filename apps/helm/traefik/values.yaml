@@ -7,4 +7,8 @@ ingressRoute:
     enabled: true
     entryPoints: ["websecure"]
     matchRule: Host(`traefik.oikz.dev`)
-    
+
+service:
+  annotations:
+    oci-network-load-balancer.oraclecloud.com/security-list-management-mode: "All"
+    oci.oraclecloud.com/load-balancer-type: nlb
