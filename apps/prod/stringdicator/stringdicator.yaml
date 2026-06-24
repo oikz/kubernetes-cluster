@@ -57,11 +57,11 @@ spec:
               readOnly: false
           resources:
             requests:
-              memory: "4Gi"
-              cpu: "250m"
+              memory: "500m"
+              cpu: "100m"
             limits:
-              memory: "4Gi"
-              cpu: "1.0"
+              memory: "1Gi"
+              cpu: "250m"
 
       restartPolicy: Always
 
