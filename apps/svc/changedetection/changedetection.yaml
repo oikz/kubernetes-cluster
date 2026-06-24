@@ -16,13 +16,6 @@ spec:
       initContainers:
         - name: browser-chrome
           image: docker.io/seleniarm/standalone-chromium:4.0.0-20211213
-          resources:
-            requests:
-              memory: "1Gi"
-              cpu: "100m"
-            limits:
-              memory: "2Gi"
-              cpu: "250m"
           restartPolicy: Always
 
       containers:
@@ -37,13 +30,6 @@ spec:
             - mountPath: /datastore
               name: datastore
               readOnly: false
-          resources:
-            requests:
-              memory: "200Mi"
-              cpu: "100m"
-            limits:
-              memory: "500Mi"
-              cpu: "500m"
 
       restartPolicy: Always
 
