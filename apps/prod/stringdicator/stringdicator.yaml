@@ -16,10 +16,6 @@ spec:
       initContainers:
         - name: lavalink
           image: ghcr.io/lavalink-devs/lavalink:4
-          volumeMounts:
-            - mountPath: /opt/Lavalink/application.yml
-              name: lavalink-application-yaml
-              readOnly: true
           env:
             - name: _JAVA_OPTIONS
               value: "-Xmx2G"
@@ -27,6 +23,24 @@ spec:
               value: "2333"
             - name: LAVALINK_SERVER_PASSWORD
               value: "youshallnotpass"
+            - name: LAVALINK_PLUGINS_0_DEPENDENCY
+              value: "dev.lavalink.youtube:youtube-plugin:1.18.1"
+            - name: LAVALINK_SERVER_SOURCES_YOUTUBE
+              value: "false"
+            - name: PLUGINS_YOUTUBE_ENABLED
+              value: "true"
+            - name: PLUGINS_YOUTUBE_ALLOWSEARCH
+              value: "true"
+            - name: PLUGINS_YOUTUBE_ALLOWDIRECTVIDEOIDS
+              value: "true"
+            - name: PLUGINS_YOUTUBE_ALLOWDIRECTPLAYLISTIDS
+              value: "true"
+            - name: PLUGINS_YOUTUBE_CLIENTS_0
+              value: "MUSIC"
+            - name: PLUGINS_YOUTUBE_CLIENTS_1
+              value: "ANDROID"
+            - name: PLUGINS_YOUTUBE_CLIENTS_2
+              value: "WEB"
           resources:
             requests:
               memory: "1Gi"
@@ -86,9 +100,3 @@ spec:
                   key: channel_id
 
       restartPolicy: Always
-
-      volumes:
-        - name: lavalink-application-yaml
-          hostPath:
-            path: /home/ubuntu/docker/k8s/stringdicator/application.yml
-            type: File
