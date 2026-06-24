@@ -9,7 +9,7 @@ spec:
     language: dotnet
 
     # Values supported: newrelic-java-init:latest, newrelic-dotnet-init:latest, newrelic-node-init:latest, newrelic-python-init:latest, newrelic-ruby-init:latest, newrelic-php-init:latest, newrelic-php-init:musl
-    image: docker.ionewrelic/newrelic-dotnet-init:latest
+    image: docker.io/newrelic/newrelic-dotnet-init:latest
     env:
     # Example overriding the appName configuration
     # - name: NEW_RELIC_APP_NAME
