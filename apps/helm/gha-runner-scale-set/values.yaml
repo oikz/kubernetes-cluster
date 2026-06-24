@@ -1,4 +1,4 @@
-﻿githubConfigUrl: "https://github.com/oikz/website"
+﻿githubConfigUrl: "https://github.com/oikz/kubernetes-cluster"
 githubConfigSecret: pre-defined-secret
 controllerServiceAccount:
   namespace: arc-systems
