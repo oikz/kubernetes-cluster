@@ -46,10 +46,6 @@ spec:
             namespace: arc-runners
             chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
             version: 0.13.1
-          - appName: actualbudget
-            namespace: actual-budget
-            chart: https://community-charts.github.io/helm-charts
-            version: 1.8.7
   template:
     metadata:
       name: "{{appName}}"
