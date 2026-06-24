@@ -87,6 +87,10 @@ newrelic-eapm-agent:
   enabled: false
 
 k8s-agents-operator:
+  controllerManager:
+    manager:
+      image:
+        repository: docker.io/newrelic/k8s-agents-operator
   enabled: true
   resources:
     requests:
