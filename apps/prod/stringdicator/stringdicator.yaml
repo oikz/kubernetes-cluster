@@ -76,27 +76,27 @@ spec:
             - name: TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: discord-token
-                  key: token
+                  name: stringdicator-secrets
+                  key: discord-token
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: google-api-key
-                  key: api-key
+                  name: stringdicator-secrets
+                  key: google-api-key
             - name: SEARCH_ENGINE_ID
               valueFrom:
                 secretKeyRef:
-                  name: google-search-engine-id
+                  name: stringdicator-secrets
                   key: search-engine-id
             - name: DEV_GUILD_ID
               valueFrom:
                 secretKeyRef:
-                  name: dev-guild-id
-                  key: guild-id
+                  name: stringdicator-secrets
+                  key: dev-guild-id
             - name: DELETED_MESSAGE_CHANNEL_ID
               valueFrom:
                 secretKeyRef:
-                  name: deleted-message-channel-id
-                  key: channel-id
+                  name: stringdicator-secrets
+                  key: deleted-message-channel-id
 
       restartPolicy: Always
