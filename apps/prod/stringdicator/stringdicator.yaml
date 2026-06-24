@@ -76,27 +76,27 @@ spec:
             - name: TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: discord_token
+                  name: discord-token
                   key: token
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: google_api_key
-                  key: api_key
+                  name: google-api-key
+                  key: api-key
             - name: SEARCH_ENGINE_ID
               valueFrom:
                 secretKeyRef:
-                  name: google_search_engine_id
-                  key: search_engine_id
+                  name: google-search-engine-id
+                  key: search-engine-id
             - name: DEV_GUILD_ID
               valueFrom:
                 secretKeyRef:
-                  name: dev_guild_id
-                  key: guild_id
+                  name: dev-guild-id
+                  key: guild-id
             - name: DELETED_MESSAGE_CHANNEL_ID
               valueFrom:
                 secretKeyRef:
-                  name: deleted_message_channel_id
-                  key: channel_id
+                  name: deleted-message-channel-id
+                  key: channel-id
 
       restartPolicy: Always
