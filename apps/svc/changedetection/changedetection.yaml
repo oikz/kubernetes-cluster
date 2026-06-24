@@ -15,7 +15,7 @@ spec:
     spec:
       initContainers:
         - name: browser-chrome
-          image: seleniarm/standalone-chromium:4.0.0-20211213
+          image: docker.io/seleniarm/standalone-chromium:4.0.0-20211213
           resources:
             requests:
               memory: "1Gi"
