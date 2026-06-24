@@ -6,6 +6,8 @@ metadata:
 spec:
   storageClassName: oci-bv
   volumeName: data
+  accessModes:
+    - ReadWriteOnce
 ---
 apiVersion: v1
 kind: PersistentVolume
