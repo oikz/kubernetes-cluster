@@ -23,3 +23,5 @@ spec:
     namespace: changedetection
   capacity:
     storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
