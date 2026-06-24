@@ -37,7 +37,7 @@ spec:
           - appName: metrics-server
             namespace: metrics-server
             chart: https://kubernetes-sigs.github.io/metrics-server/
-            version: 0.8.1
+            version: 3.13.1
   template:
     metadata:
       name: "{{appName}}"
