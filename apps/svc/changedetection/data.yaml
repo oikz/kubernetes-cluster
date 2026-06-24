@@ -11,17 +11,3 @@ spec:
   resources:
     requests:
       storage: 1Gi
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: data
-spec:
-  storageClassName: oci-bv
-  claimRef:
-    name: data
-    namespace: changedetection
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
