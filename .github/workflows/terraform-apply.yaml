@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - oke
+      - oke/*
       - .github/workflows/terraform-apply.yaml
 
 env:
