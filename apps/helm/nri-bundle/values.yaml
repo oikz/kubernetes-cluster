@@ -2,20 +2,38 @@
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
   ksm:
-    resources:
-      requests:
-        cpu: 50m
-        memory: 30M
+    ksm:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
+    forwarder:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
   controlPlane:
-    resources:
-      requests:
-        cpu: 50m
-        memory: 30M
+    controlPlane:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
+    forwarder:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
   kubelet:
-    resources:
-      requests:
-        cpu: 50m
-        memory: 30M
+    kubelet:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
+    agent:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 30M
   
 nri-metadata-injection:
   # nri-metadata-injection.enabled -- Install the [`nri-metadata-injection` chart](https://github.com/newrelic/k8s-metadata-injection/tree/main/charts/nri-metadata-injection)
