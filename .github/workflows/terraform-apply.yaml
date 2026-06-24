@@ -61,7 +61,7 @@ jobs:
 
   apply:
     name: Terraform apply
-    runs-on: [ ubuntu-latest ]
+    runs-on: [ gha-runner-scale-set ]
     environment: apply
     needs: plan
     steps:
