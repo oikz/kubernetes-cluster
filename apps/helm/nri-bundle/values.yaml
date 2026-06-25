@@ -22,7 +22,7 @@
             TRUST_SERVER_CERTIFICATE: true
             TIMEOUT: 10
             ENABLE_QUERY_MONITORING: true
-
+            QUERY_MONITORING_RESPONSE_TIME_THRESHOLD: 0
             CUSTOM_METRICS_QUERY: >-
               select
                 'rows_inserted' as "metric_name",
