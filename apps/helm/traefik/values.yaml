@@ -12,3 +12,5 @@ service:
   annotations:
     oci-network-load-balancer.oraclecloud.com/security-list-management-mode: "All"
     oci.oraclecloud.com/load-balancer-type: nlb
+    external-dns.alpha.kubernetes.io/hostname: "*.oikz.dev"
+    external-dns.alpha.kubernetes.io/ttl: "120"
