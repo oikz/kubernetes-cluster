@@ -16,7 +16,7 @@
             HOSTNAME: ${discovery.ip}
             DATABASE: app
             PORT: 5432
-            COLLECTION_LIST: '["app"]'
+            COLLECTION_LIST: 'ALL'
             COLLECT_DB_LOCK_METRICS: true
             ENABLE_SSL: false
             TRUST_SERVER_CERTIFICATE: true
