@@ -7,5 +7,5 @@ env:
         name: cloudflare-api-key
         key: apiKey
 extraArgs:
-  - --source=service # Tells external-dns to only look at Services, ignoring Ingresses/IngressRoutes
-  - --annotation-filter=external-dns.custom/managed=true # The opt-in gatekeeper
+  - --source=service
+  - --annotation-filter=external-dns.custom/managed=true
