@@ -13,7 +13,7 @@
           env:
             USERNAME: app
             PASSWORD: "{{NR_DB_PASSWORD}}"
-            HOSTNAME: ${discovery.ip}
+            HOSTNAME: production-database-rw.website.svc.cluster.local
             DATABASE: app
             PORT: 5432
             COLLECTION_LIST: 'ALL'
