@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: ghcr.io/oikz/website:81b947d8a50df6b838a9635e4dc7c0cfdbb06a3a
+          image: ghcr.io/oikz/website:0c2b74091a1c727b13b2c19c36d6e99576eac02d
           ports:
             - containerPort: 8080
           readinessProbe:
