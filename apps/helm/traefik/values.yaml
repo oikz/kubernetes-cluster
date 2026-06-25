@@ -14,3 +14,4 @@ service:
     oci.oraclecloud.com/load-balancer-type: nlb
     external-dns.alpha.kubernetes.io/hostname: "*.oikz.dev"
     external-dns.alpha.kubernetes.io/ttl: "120"
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
