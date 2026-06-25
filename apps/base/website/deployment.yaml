@@ -16,9 +16,6 @@ spec:
       containers:
         - name: website
           image: ghcr.io/oikz/website:4f847e47f2d9525e00db3b613d8bd03552870d3b
-          env:
-            - name: NEW_RELIC_APP_NAME
-              value: "production-website"
           ports:
             - containerPort: 8080
           readinessProbe:

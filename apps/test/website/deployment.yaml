@@ -8,8 +8,6 @@ spec:
       containers:
         - name: website
           env:
-            - name: OTEL_SERVICE_NAME
-              value: 'Website - Test'
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:

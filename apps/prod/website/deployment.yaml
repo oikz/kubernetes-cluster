@@ -8,8 +8,8 @@ spec:
       containers:
         - name: website
           env:
-            - name: OTEL_SERVICE_NAME
-              value: 'Website - Production'
+            - name: NEW_RELIC_APP_NAME
+              value: "production-website"
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
