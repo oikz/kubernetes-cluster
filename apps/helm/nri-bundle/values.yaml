@@ -1,12 +1,6 @@
 ﻿newrelic-infrastructure:
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
-  env:
-    - name: NR_DB_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: postgres-credentials
-          key: postgres-password
   integrations:
     postgresql-config.yml:
       discovery:
@@ -61,6 +55,12 @@
           cpu: 50m
           memory: 30M
   kubelet:
+    extraEnv:
+      - name: NR_DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: postgres-credentials
+            key: postgres-password
     kubelet:
       resources:
         requests:
