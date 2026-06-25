@@ -1,6 +1,46 @@
 ﻿newrelic-infrastructure:
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
+  env:
+    - name: NR_DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: postgres-credentials
+          key: postgres-password
+  integrations:
+    postgresql-config.yml:
+      discovery:
+        command:
+          exec: /var/db/newrelic-infra/nri-discovery-kubernetes
+          match:
+            label.app: postgresql
+      integrations:
+        - name: nri-postgresql
+          env:
+            USERNAME: app
+            PASSWORD: $NR_DB_PASSWORD
+            HOSTNAME: ${discovery.ip}
+            DATABASE: app
+            PORT: 5432
+            COLLECTION_LIST: '["app"]'
+            COLLECT_DB_LOCK_METRICS: true
+            ENABLE_SSL: true
+            TRUST_SERVER_CERTIFICATE: false
+            SSL_ROOT_CERT_LOCATION: /etc/newrelic-infra/root_cert.crt
+            SSL_CERT_LOCATION: /etc/newrelic-infra/postgresql.crt
+            SSL_KEY_LOCATION: /etc/newrelic-infra/postgresql.key
+            TIMEOUT: 10
+
+            CUSTOM_METRICS_QUERY: >-
+              select
+                'rows_inserted' as "metric_name",
+                'delta' as "metric_type",
+                sd.tup_inserted as "metric_value",
+                sd.datid as "database_id"
+              from pg_stat_database sd;
+          labels:
+            env: production
+            role: postgresql
   ksm:
     ksm:
       resources:
