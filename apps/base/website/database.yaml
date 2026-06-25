@@ -3,8 +3,6 @@ kind: Cluster
 metadata:
   name: database
   namespace: website
-  labels:
-    app: postgresql
 spec:
   storage:
     size: 4Gi

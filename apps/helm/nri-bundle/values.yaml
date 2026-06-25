@@ -13,7 +13,7 @@
         command:
           exec: /var/db/newrelic-infra/nri-discovery-kubernetes
           match:
-            label.app: postgresql
+            app.kubernetes.io/instance: production-database
       integrations:
         - name: nri-postgresql
           env:
