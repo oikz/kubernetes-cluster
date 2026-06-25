@@ -12,7 +12,7 @@
         - name: nri-postgresql
           env:
             USERNAME: app
-            PASSWORD: {{NR_DB_PASSWORD}}
+            PASSWORD: "{{NR_DB_PASSWORD}}"
             HOSTNAME: ${discovery.ip}
             DATABASE: app
             PORT: 5432
