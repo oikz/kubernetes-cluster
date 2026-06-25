@@ -21,6 +21,7 @@
             ENABLE_SSL: false
             TRUST_SERVER_CERTIFICATE: true
             TIMEOUT: 10
+            ENABLE_QUERY_MONITORING: true
 
             CUSTOM_METRICS_QUERY: >-
               select
