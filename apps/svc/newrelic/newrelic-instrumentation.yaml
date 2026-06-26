@@ -1,4 +1,4 @@
-﻿apiVersion: newrelic.com/v1beta2
+﻿apiVersion: newrelic.com/v1beta3
 kind: Instrumentation
 metadata:
   name: newrelic-instrumentation
