@@ -21,7 +21,7 @@ spec:
           - appName: cloudnative-pg
             namespace: cnpg-system
             chart: https://cloudnative-pg.io/charts
-            version: 0.27.0
+            version: 0.28.3
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts
