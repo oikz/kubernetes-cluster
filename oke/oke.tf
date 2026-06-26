@@ -37,7 +37,7 @@
       memory             = 6,
       size               = 2,
       boot_volume_size   = 50,
-      kubernetes_version = "v1.34.2"
+      kubernetes_version = "v1.35"
     }
   }
 
