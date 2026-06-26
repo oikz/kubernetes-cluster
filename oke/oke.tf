@@ -14,7 +14,7 @@
   home_region        = var.region
   region             = var.region
   timezone           = var.timezone
-  kubernetes_version = "v1.35"
+  kubernetes_version = "v1.35.2"
 
   # Auth
   api_fingerprint = var.fingerprint
