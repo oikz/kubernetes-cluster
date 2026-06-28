@@ -123,7 +123,6 @@ newrelic-logging:
 newrelic-eapm-agent:
   # newrelic-eapm-agent.enabled -- Install the [`nr-eapm-agent`](https://github.com/newrelic/helm-charts/tree/master/charts/nr-ebpf-agent)
   enabled: true
-  region: "US"
   ebpfAgent:
     resources:
       requests:
@@ -165,3 +164,5 @@ global:
   # -- (bool) In each integration it has different behavior. See [Further information](#values-managed-globally-3) but all aims to send less metrics to the backend to try to save costs |
   # @default -- false
   privileged: true
+
+  region: "US"
