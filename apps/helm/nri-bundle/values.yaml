@@ -33,7 +33,7 @@
           labels:
             env: production
             role: postgresql
-            endpoint: "production-database-rw.website.svc.cluster.local"
+            endpoint: "production-database-rw.website.svc.cluster.local:5432"
   ksm:
     ksm:
       resources:
