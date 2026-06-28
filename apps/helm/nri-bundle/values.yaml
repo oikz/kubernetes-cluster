@@ -131,12 +131,12 @@ newrelic-eapm-agent:
 
 
 
-#k8s-agents-operator:
-#  enabled: true
-#  resources:
-#    requests:
-#      cpu: 50m
-#      memory: 100M
+k8s-agents-operator:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100M
 
 # -- change the behaviour globally to all the supported helm charts.
 # See [user's guide of the common library](https://github.com/newrelic/helm-charts/blob/master/library/common-library/README.md) for further information.
