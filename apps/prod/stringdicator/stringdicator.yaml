@@ -45,7 +45,7 @@ spec:
 
       containers:
         - name: stringdicator
-          image: ghcr.io/oikz/stringdicatorbot/stringdicator:fc4e626
+          image: ghcr.io/oikz/stringdicatorbot/stringdicator:278cc18
           env:
             - name: OTEL_SERVICE_NAME
               value: 'Stringdicator'
