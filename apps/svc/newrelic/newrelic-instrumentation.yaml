@@ -7,6 +7,9 @@ spec:
   agent:
     # Values supported: dotnet, java, nodejs, python, ruby, php
     language: dotnet
+    env:
+      - name: NEW_RELIC_ATTRIBUTES_INCLUDE
+        value: "remote.host.name,db.instance"
 
     # Values supported: newrelic-java-init:latest, newrelic-dotnet-init:latest, newrelic-node-init:latest, newrelic-python-init:latest, newrelic-ruby-init:latest, newrelic-php-init:latest, newrelic-php-init:musl
     image: docker.io/newrelic/newrelic-dotnet-init:latest
