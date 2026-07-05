@@ -94,6 +94,8 @@ kube-state-metrics:
   # your Kubernetes clusters.
   enabled: true
   scrapeInterval: 60s
+  extraArgs:
+    - --metric-denylist=^kube_(persistentvolume|volume).*$
   resources:
     requests:
       cpu: 50m
