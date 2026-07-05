@@ -1,11 +1,15 @@
 ﻿newrelic-infrastructure:
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
-  agentConfig:
-    metrics_storage_sample_rate: -1
   common:
     config:
       interval: 40s
+      namespaceSelector:
+        matchExpressions:
+          - key: kubernetes.io/metadata.name
+            operator: In
+            values:
+              - "website"
   integrations:
     postgresql-config.yml:
       discovery:
