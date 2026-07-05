@@ -1,6 +1,8 @@
 ﻿newrelic-infrastructure:
   # newrelic-infrastructure.enabled -- Install the [`newrelic-infrastructure` chart](https://github.com/newrelic/nri-kubernetes/tree/main/charts/newrelic-infrastructure)
   enabled: true
+  agentConfig:
+    metrics_storage_sample_rate: -1
   common:
     config:
       interval: 40s
@@ -94,8 +96,6 @@ kube-state-metrics:
   # your Kubernetes clusters.
   enabled: true
   scrapeInterval: 60s
-  extraArgs:
-    - --metric-denylist=^kube_(persistentvolume|volume).*$
   resources:
     requests:
       cpu: 50m
