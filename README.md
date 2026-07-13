@@ -24,4 +24,3 @@ GitOps repository for an Oracle OKE cluster managed by ArgoCD.
   - Utilises Kustomize for templating to support prod/test environments
   - Horizontal Pod Autoscaler set up to autoscale deployment based on CPU usage
 - Automatic Terraform deployments using GitHub Actions
-- 
