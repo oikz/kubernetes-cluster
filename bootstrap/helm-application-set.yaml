@@ -41,7 +41,7 @@ spec:
           - appName: nri-bundle
             namespace: newrelic
             chart: https://helm-charts.newrelic.com
-            version: 7.0.23
+            version: 8.0.10
           - appName: external-dns
             namespace: external-dns
             chart: https://kubernetes-sigs.github.io/external-dns/
