@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "kubernetes": {
+    "managerFilePatterns": ["/\\.yaml$/"]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^bootstrap/helm-application-set\\.yaml$/"],
+      "matchStrings": [
+        "chart:\\s*oci://(?<depName>\\S+)\\s*\\n\\s*version:\\s*(?<currentValue>\\S+)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^bootstrap/helm-application-set\\.yaml$/"],
+      "matchStrings": [
+        "appName:\\s*(?<depName>\\S+)\\s*\\n\\s*namespace:\\s*\\S+\\s*\\n\\s*chart:\\s*(?<registryUrl>https://\\S+)\\s*\\n\\s*version:\\s*(?<currentValue>\\S+)"
+      ],
+      "datasourceTemplate": "helm",
+      "versioningTemplate": "semver"
+    }
+  ]
+}
