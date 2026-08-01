@@ -3,6 +3,9 @@
   "kubernetes": {
     "managerFilePatterns": ["/\\.yaml$/"]
   },
+  "github-actions": {
+    "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"]
+  },
   "customManagers": [
     {
       "customType": "regex",
