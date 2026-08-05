@@ -9,7 +9,7 @@ spec:
           - appName: argocd
             namespace: argocd
             chart: oci://ghcr.io/argoproj/argo-helm/argo-cd
-            version: 10.2.2
+            version: 10.3.0
           - appName: headlamp
             namespace: headlamp
             chart: https://kubernetes-sigs.github.io/headlamp
