@@ -31,7 +31,7 @@ notifications:
         newrelic:
           method: POST
           body: |
-            {"query":"mutation { changeTrackingCreateDeployment(deployment: {entityGuid: \"{{.app.metadata.annotations.newrelic\\.com/entity-guid}}\", version: \"{{.app.status.sync.revision}}\", deploymentType: BASIC, description: \"ArgoCD sync of {{.app.metadata.name}}\", user: \"argocd\"}) { deploymentId } }"}
+            {"query":"mutation { changeTrackingCreateDeployment(deployment: {entityGuid: \"{{index .app.metadata.annotations \"newrelic.com/entity-guid\"}}\", version: \"{{.app.status.sync.revision}}\", deploymentType: BASIC, description: \"ArgoCD sync of {{.app.metadata.name}}\", user: \"argocd\"}) { deploymentId } }"}
   triggers:
     trigger.on-deployed: |
       - when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
