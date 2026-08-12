@@ -12,6 +12,10 @@ spec:
         revision: HEAD
         directories:
           - path: apps/prod/*
+          - path: apps/prod/website
+            exclude: true
+          - path: apps/prod/stringdicator
+            exclude: true
           - path: apps/test/*
           - path: apps/svc/*
   template:

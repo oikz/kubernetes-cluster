@@ -7,10 +7,32 @@
      type: git
      username: oikz
 server:
-  ingress: 
+  ingress:
     enabled: true
     hostname: "argocd.oikz.dev"
-    annotations: 
+    annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
 global:
   domain: argocd.oikz.dev
+notifications:
+  secret:
+    create: false
+  notifiers:
+    service.webhook.newrelic: |
+      url: https://api.newrelic.com/graphql
+      headers:
+      - name: Content-Type
+        value: application/json
+      - name: Api-Key
+        value: $newrelic-api-key
+  templates:
+    template.newrelic-deployment-marker: |
+      webhook:
+        newrelic:
+          method: POST
+          body: |
+            {"query":"mutation { changeTrackingCreateDeployment(deployment: {entityGuid: \"{{.app.metadata.annotations.newrelic\\.com/entity-guid}}\", version: \"{{.app.status.sync.revision}}\", deploymentType: BASIC, description: \"ArgoCD sync of {{.app.metadata.name}}\", user: \"argocd\"}) { deploymentId } }"}
+  triggers:
+    trigger.on-deployed: |
+      - when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
+        send: [newrelic-deployment-marker]

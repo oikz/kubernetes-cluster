@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-stringdicator
+  namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-deployed.newrelic: ""
+    newrelic.com/entity-guid: "NzU0MDcyN3xBUE18QVBQTElDQVRJT058MTEzMjE1NDc2NQ"
+spec:
+  project: prod
+  source:
+    repoURL: https://github.com/oikz/kubernetes-cluster.git
+    targetRevision: HEAD
+    path: apps/prod/stringdicator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: stringdicator
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
