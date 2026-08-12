@@ -25,7 +25,7 @@
             HOSTNAME: production-database-rw.website.svc.cluster.local
             DATABASE: app
             PORT: 5432
-            COLLECTION_LIST: 'ALL'
+            COLLECTION_LIST: '{"app":{"public":{}}}'
             COLLECT_DB_LOCK_METRICS: true
             ENABLE_SSL: false
             TRUST_SERVER_CERTIFICATE: true
@@ -116,6 +116,10 @@ nri-kube-events:
 newrelic-logging:
   # newrelic-logging.enabled -- Install the [`newrelic-logging` chart](https://github.com/newrelic/helm-charts/tree/master/charts/newrelic-logging)
   enabled: true
+  fluentBit:
+    # -- Only tail logs from namespaces we actually monitor. Tailing every
+    # namespace made kube-system and the New Relic operator ~96% of log ingest.
+    path: /var/log/containers/*_website_*.log,/var/log/containers/*_stringdicator_*.log
   resources:
     requests:
       cpu: 50m
