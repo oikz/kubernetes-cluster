@@ -7,6 +7,14 @@ spec:
     spec:
       containers:
         - name: website
+          livenessProbe:
+            httpGet:
+              path: /WeatherForecast
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 1
+            timeoutSeconds: 1
+            failureThreshold: 10
           env:
             - name: NEW_RELIC_APP_NAME
               value: "production-website"
