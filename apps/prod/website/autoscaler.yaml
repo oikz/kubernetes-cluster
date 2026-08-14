@@ -4,4 +4,4 @@ metadata:
   name: website
 spec:
   minReplicas: 1
-  maxReplicas: 4
+  maxReplicas: 2
