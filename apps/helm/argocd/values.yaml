@@ -6,6 +6,8 @@
      url: https://github.com/oikz/kubernetes-cluster.git
      type: git
      username: oikz
+dex:
+  enabled: false
 server:
   ingress:
     enabled: true
