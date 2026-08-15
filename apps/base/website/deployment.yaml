@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: ghcr.io/oikz/website:8172991e850b5d92e6ed6aad61bd5c382d5838fd
+          image: ghcr.io/oikz/website:5948b41fcbb402df6c49a22fdfcee4da20e44a7a
           ports:
             - containerPort: 8080
           startupProbe:
@@ -24,6 +24,7 @@ spec:
               port: 8080
             periodSeconds: 5
             failureThreshold: 30
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /WeatherForecast
