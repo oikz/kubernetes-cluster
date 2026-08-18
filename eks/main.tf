@@ -41,7 +41,7 @@ locals {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 21.24.0"
+  version = "~> 21.25.0"
 
   name               = local.name
   kubernetes_version = "1.33"
@@ -117,7 +117,7 @@ module "eks" {
 
 module "karpenter" {
   source  = "terraform-aws-modules/eks/aws//modules/karpenter"
-  version = "~> 21.24.0"
+  version = "~> 21.25.0"
 
   cluster_name = module.eks.cluster_name
 
@@ -136,7 +136,7 @@ module "karpenter" {
 
 module "karpenter_disabled" {
   source  = "terraform-aws-modules/eks/aws//modules/karpenter"
-  version = "~> 21.24.0"
+  version = "~> 21.25.0"
 
   create = false
 }
