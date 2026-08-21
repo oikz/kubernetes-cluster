@@ -13,7 +13,7 @@ spec:
           - appName: headlamp
             namespace: headlamp
             chart: https://kubernetes-sigs.github.io/headlamp
-            version: 0.44.0
+            version: 0.45.0
           - appName: cert-manager
             namespace: cert-manager
             chart: oci://quay.io/jetstack/charts/cert-manager
