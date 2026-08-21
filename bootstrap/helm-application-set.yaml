@@ -21,7 +21,7 @@ spec:
           - appName: traefik
             namespace: traefik
             chart: https://traefik.github.io/charts
-            version: 41.1.1
+            version: 41.3.0
           - appName: gha-runner-scale-set-controller
             namespace: arc-systems
             chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
