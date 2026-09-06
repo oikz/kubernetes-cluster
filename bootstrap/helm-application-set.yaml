@@ -9,7 +9,7 @@ spec:
           - appName: argocd
             namespace: argocd
             chart: oci://ghcr.io/argoproj/argo-helm/argo-cd
-            version: 10.4.0
+            version: 10.8.1
           - appName: cert-manager
             namespace: cert-manager
             chart: oci://quay.io/jetstack/charts/cert-manager
