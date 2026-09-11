@@ -41,7 +41,7 @@ spec:
           - appName: external-dns
             namespace: external-dns
             chart: https://kubernetes-sigs.github.io/external-dns/
-            version: 1.21.1
+            version: 1.22.0
   template:
     metadata:
       name: "{{appName}}"
