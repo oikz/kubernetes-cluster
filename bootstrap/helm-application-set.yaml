@@ -3,6 +3,7 @@ kind: ApplicationSet
 metadata:
   name: helm-application-set
 spec:
+  goTemplate: true
   generators:
     - list:
         elements:
@@ -33,42 +34,49 @@ spec:
           - appName: metrics-server
             namespace: metrics-server
             chart: https://kubernetes-sigs.github.io/metrics-server/
-            version: 3.14.0
-          - appName: nri-bundle
-            namespace: newrelic
-            chart: https://helm-charts.newrelic.com
-            version: 8.0.32
+            version: 3.13.1
+          - appName: opentelemetry-collector
+            namespace: honeycomb
+            chart: https://open-telemetry.github.io/opentelemetry-helm-charts
+            version: 0.178.2
+          - appName: opentelemetry-collector-cluster
+            # Same chart as above, deployed in deployment mode for cluster-level metrics/events
+            chartName: opentelemetry-collector
+            namespace: honeycomb
+            chart: https://open-telemetry.github.io/opentelemetry-helm-charts
+            version: 0.178.2
           - appName: external-dns
             namespace: external-dns
             chart: https://kubernetes-sigs.github.io/external-dns/
             version: 1.23.0
   template:
     metadata:
-      name: "{{appName}}"
+      name: "{{ .appName }}"
       annotations:
         argocd.argoproj.io/manifest-generate-paths: ".;.."
     spec:
       project: helm
       sources:
-        - repoURL: "{{chart}}"
-          chart: "{{appName}}"
-          targetRevision: "{{version}}"
+        - repoURL: "{{ .chart }}"
+          # Chart name defaults to appName unless chartName is set
+          chart: "{{ default .appName .chartName }}"
+          targetRevision: "{{ .version }}"
           helm:
             # Release name override (defaults to application name)
-            releaseName: "{{appName}}"
+            releaseName: "{{ .appName }}"
             valueFiles:
-              - '$valuesRef/apps/helm/{{appName}}/values.yaml'
+              - '$valuesRef/apps/helm/{{ .appName }}/values.yaml'
         - repoURL: 'https://github.com/oikz/kubernetes-cluster.git'
           targetRevision: HEAD
           ref: valuesRef
       destination:
         # Default base cluster
         name: in-cluster
-        namespace: "{{namespace}}"
+        namespace: "{{ .namespace }}"
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-          - ServerSideApply=true 
+          - ServerSideApply=true
