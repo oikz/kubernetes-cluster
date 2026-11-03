@@ -45,6 +45,10 @@ spec:
             namespace: honeycomb
             chart: https://open-telemetry.github.io/opentelemetry-helm-charts
             version: 0.178.2
+          - appName: opentelemetry-operator
+            namespace: honeycomb
+            chart: https://open-telemetry.github.io/opentelemetry-helm-charts
+            version: 0.178.2
           - appName: external-dns
             namespace: external-dns
             chart: https://kubernetes-sigs.github.io/external-dns/

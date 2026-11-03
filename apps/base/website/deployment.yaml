@@ -11,7 +11,7 @@ spec:
       labels:
         app: website
       annotations:
-        instrumentation.opentelemetry.io/inject-dotnet: "true"
+        instrumentation.opentelemetry.io/inject-dotnet: "honeycomb/otel-autoinstrumentation"
     spec:
       containers:
         - name: website

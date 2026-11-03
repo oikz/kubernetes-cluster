@@ -12,6 +12,8 @@ spec:
     metadata:
       labels:
         app: stringdicator
+      annotations:
+        instrumentation.opentelemetry.io/inject-dotnet: "honeycomb/otel-autoinstrumentation"
     spec:
       initContainers:
         - name: lavalink
