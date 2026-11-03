@@ -34,7 +34,7 @@ spec:
           - appName: metrics-server
             namespace: metrics-server
             chart: https://kubernetes-sigs.github.io/metrics-server/
-            version: 3.13.1
+            version: 3.14.0
           - appName: opentelemetry-collector
             namespace: honeycomb
             chart: https://open-telemetry.github.io/opentelemetry-helm-charts
