@@ -17,3 +17,18 @@ service:
     external-dns.alpha.kubernetes.io/ttl: "120"
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     external-dns.custom/managed: "true"
+
+# Send a span per request to the node-local OpenTelemetry collector (daemonset, hostPort 4317).
+# Traefik propagates trace context, so app spans become children of these.
+env:
+  - name: OTEL_NODE_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.hostIP
+tracing:
+  otlp:
+    enabled: true
+    grpc:
+      enabled: true
+      endpoint: "$(OTEL_NODE_IP):4317"
+      insecure: true
